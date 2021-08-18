@@ -74,8 +74,8 @@ def main():
 
     # packets go into the OUTPUT chain when they're coming from your own computer.
     # so the line below is for when you wanna modify packets you're sending to some place
-    os.system("sudo iptables -I OUTPUT -j NFQUEUE --queue-num 0")
-    os.system("sudo iptables -I INPUT -j NFQUEUE --queue-num 0")
+    os.system("iptables -I OUTPUT -j NFQUEUE --queue-num 0")
+    os.system("iptables -I INPUT -j NFQUEUE --queue-num 0")
     # the first statement queues up the requests from machine to server
     # the second statement queues up the requests from server to machine
 
@@ -99,13 +99,14 @@ def main():
         print("[-] Some Error has occurred, quitting")
 
     # we even have to restore our IPtables rules back to normal
-    os.system("sudo iptables --flush")
-    os.system("sudo iptables --flush")
-    os.system("sudo iptables --flush")
-    os.system("sudo iptables --flush")
-    os.system("sudo iptables --flush")
-    os.system("sudo iptables --flush")
-    os.system("sudo iptables --flush")
+    os.system("iptables --flush")
+    os.system("iptables --flush")
+    os.system("iptables --flush")
+    os.system("iptables --flush")
+    os.system("iptables --flush")
+    os.system("iptables --flush")
+    os.system("iptables --flush")
+    os.system("iptables --flush")
     print("[+] IPtables restored to normal")
 
 
